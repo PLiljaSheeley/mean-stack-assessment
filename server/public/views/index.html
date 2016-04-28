@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="app">
+   <head lang="en">
+       <meta charset="UTF-8">
+        <link href = "vendor/bootstrap/dist/css/bootstrap.min.css" rel = "stylesheet">
+       <script src="vendor/angular/angular.min.js" type="text/javascript"></script>
+		   <script src="assets/scripts/client.min.js" type="text/javascript"></script>
+       <title>Hero App</title>
+   </head>
+   <body>
+   <div ng-controller="MainController">
+    <form>
+      <label class = "control-label col-sm-2">Alias: </label>
+      <input type="text" ng-model="hero.alias" /><br />
+      <label class = "control-label col-sm-2">First Name: </label>
+      <input type="text" ng-model="hero.first_name" /><br />
+      <label class = "control-label col-sm-2">Last Name: </label>
+      <input type="text" ng-model="hero.last_name" /><br />
+      <label class = "control-label col-sm-2">City: </label>
+      <input type="text" ng-model="hero.city" /><br />
+      <label class = "control-label col-sm-2">Power Name: </label><br /><br />
+
+      <input type="radio" ng-model="hero.power_name" value="Invisibility"/>Invisibility<br />
+      <input type="radio" ng-model="hero.power_name" value="Flight"/>Flight<br />
+      <input type="radio" ng-model="hero.power_name" value="Super Speed"/>Super Speed<br />
+      <input type="radio" ng-model="hero.power_name" value="Heat Vision"/>Heat Vision<br />
+      <input type="radio" ng-model="hero.power_name" value="Super Strength"/>Super Strength<br />
+      <input type="radio" ng-model="hero.power_name" value="Accelerated Healing"/>Accelerated Healing<br />
+      <input type="radio" ng-model="hero.power_name" value="Power Blast"/>Power Blast<br />
+      <input type="radio" ng-model="hero.power_name" value="Animal Affinity"/>Animal Affinity<br />
+
+      <input type="submit" ng-click="add(hero)" value="Save"/>
+    </form>
+
+    <h2>Heroes</h2>
+        <div ng-model = "heroObject" ng-repeat="hero in heroArray">
+          Alias: {{ hero.alias }}<br />
+          First Name: {{ hero.first_name }}<br />
+          Last Name: {{ hero.last_name }}<br />
+          City: {{ hero.city }}<br />
+          Power Name: {{ hero.power_name }}<br />
+          <button type = "button" ng-click="deleteHero(hero)">Delete Hero</button>
+        </div>
+  </div>
